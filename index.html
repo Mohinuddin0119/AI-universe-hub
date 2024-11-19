@@ -15,29 +15,59 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
     </style>
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/d5186fcd93.js"
+      crossorigin="anonymous"
+    ></script>
 
     <style>
-        .font-work-sans{
-            font-family: "Work Sans", sans-serif;
-            font-style: normal;
-        }
+      .font-work-sans {
+        font-family: "Work Sans", sans-serif;
+        font-style: normal;
+      }
     </style>
   </head>
   <body class="bg-white text-black min-h-screen font-work-sans">
     <header>
       <h1 class="text-5xl font-semibold text-center p-10">AI Universe Hub</h1>
       <div class="flex justify-center my-10">
-        <button class="btn bg-[#EB5757] border-none text-white">Sort by Date</button>
+        <button class="btn bg-[#EB5757] border-none text-white">
+          Sort by Date
+        </button>
       </div>
     </header>
     <main>
-        <!--  -->
-        <div id="ai-info-container" class="p-5">
-            <div></div>
-            <img src="" alt="">
-        </div>
 
-        <script src="./js/script.js"></script>
+      <!-- spinner or loader -->
+      <!-- <div>
+        <span class="loading loading-spinner loading-lg"></span>
+      </div> -->
+      <!--Ai info  -->
+      <div
+        id="ai-info-container"
+        class="p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+      ></div>
+
+      <!-- see more -->
+      <div class="py-5 flex justify-center">
+        <button
+          onclick=""
+          id="seeMoreBtn"
+          class="btn bg-[#EB5757] text-white border-none"
+        >
+          Show more
+        </button>
+      </div>
+
+      <!-- see more result -->
+      <div id="seeMoreContainer">
+        
+      </div>
+
+
+
+      <script src="./js/script.js"></script>
     </main>
   </body>
 </html>

@@ -61,20 +61,20 @@ const SeeMoreDetails = (info) =>{
     const seeMoreContainer = document.getElementById('seeMoreContainer');
     // seeMoreContainer.classList= 'bg-white p-5'
     seeMoreContainer.innerHTML = `
-        <dialog id="seeMore" class="modal ">
-            <div class=" bg-white py-12 relative px-5">
+        <dialog id="seeMore" class="modal">
+            <div class="relative bg-white modal-box lg:max-w-full">
                 <form method="dialog">
                     <button
                         class="btn btn-sm btn-circle bg-red-500 btn-ghost absolute right-2 top-2"
                     >
                     ✕
                     </button>
-                    <div class =' flex flex-col md:flex-row justify-between p-6 gap-5 '>
-                        <div class='flex-1 border border-red-400  p-5 lg:w-[490px] bg-[#EB575733]'>
+                    <div class ='flex flex-col lg:flex-row justify-between md:p-6 gap-5 '>
+                        <div class='flex-1 border border-red-400 px-5 md:p-5  bg-[#EB575733]'>
                             <div class ='text-center flex justify-center'>
-                                <h3 class='font-bold lg:w-80 text-xl '>${info?.description}</h3>
+                                <h3 class='font-bold lg:w-80 text-xl p-2'>${info?.description}</h3>
                             </div>
-                            <div class='flex flex-col md:flex-row justify-center items-center my-5 gap-5 '>
+                            <div class='flex flex-col md:flex-row justify-center items-center px-5 gap-5 '>
                                 <div class='text-green-500 p-5 shadow-lg rounded-lg font-bold'>
                                     <h3 class=''>${info?.pricing[0]?.price}</h3>
                                     <h3>${info?.pricing[0]?.plan}</h3>
@@ -90,7 +90,7 @@ const SeeMoreDetails = (info) =>{
                             </div>
                             <div>
                             </div>
-                            <div class='flex justify-between '>
+                            <div class='flex flex-col md:flex-row justify-between p-5'>
                                 <div>                                                                    
                                     <h3 class='font-bold text-xl'>Features</h3>
                                     <ul class='list-disc'>
@@ -109,9 +109,9 @@ const SeeMoreDetails = (info) =>{
                                 </div>
                             </div>
                         </div>
-                        <div class='flex-1 px-5 py-5 '>
-                            <div>
-                                <img class='lg:w-[440px]' src="${info?.image_link[0]}" alt="">
+                        <div class='flex-1 px-5 py-5'>
+                            <div class=' '>
+                                <img class='' src="${info?.image_link[0]}" alt="">
                             </div>
                             <h3 class="font-bold text-xl py-2">Hi, how are you doing today?</h3>
                             <p>I'm doing well, thank you for asking. How can I assist you today?</p>

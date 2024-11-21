@@ -12,7 +12,7 @@ const displayInfo = (values) =>{
     // values.splice(0,5)
 
     values.forEach(element => {
-        console.log(element)       
+        // console.log(element)       
 
         // get container
         const aiContainer = document.getElementById('ai-info-container')
@@ -37,7 +37,7 @@ const displayInfo = (values) =>{
                     <span><i class="fa-regular fa-calendar"></i></span>
                      ${element?.published_in}
                 </p>
-                <button onclick="handleSeeMore('${element?.id}'); seeMore.showModal()" class=" ">
+                <button onclick="handleSeeMore('${element?.id}');" class=" ">
                     <span class="text-red-500 bg-gray-100 rounded-full px-3 py-2"><i  class="fa-solid fa-arrow-right"></i></span>
                 </button>
             </div>
@@ -51,29 +51,75 @@ const handleSeeMore = async(id) =>{
     const resp = await fetch(` https://openapi.programming-hero.com/api/ai/tool/${id}`)
     const info = await resp.json()
     const value =await info.data;
-    console.log(value);
+    // console.log(value);
     SeeMoreDetails(value);
+    document.getElementById('seeMore').showModal()
 }
 
 const SeeMoreDetails = (info) =>{
-    // console.log('get',info)
+    console.log('get',info)
     const seeMoreContainer = document.getElementById('seeMoreContainer');
-    // const div = document.createElement('div');
+    // seeMoreContainer.classList= 'bg-white p-5'
     seeMoreContainer.innerHTML = `
-        <dialog id="seeMore" class="modal">
-            <div class="modal-box">
+        <dialog id="seeMore" class="modal ">
+            <div class=" bg-white py-12">
                 <form method="dialog">
                     <button
-                        class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                        class="btn btn-sm btn-circle bg-red-500 btn-ghost absolute right-5 top-16  lg:right-2 lg:top-6"
                     >
                     ✕
                     </button>
+                    <div class ='flex flex-col md:flex-row justify-between p-6 gap-5 '>
+                        <div class='flex-1 border border-red-400  p-5 lg:w-[490px] bg-[#EB575733]'>
+                            <div class ='text-center flex justify-center'>
+                                <h3 class='font-bold lg:w-80 text-xl '>${info?.description}</h3>
+                            </div>
+                            <div class='flex flex-col md:flex-row justify-center items-center my-5 gap-5 '>
+                                <div class='text-green-500 p-5 shadow-lg rounded-lg font-bold'>
+                                    <h3 class=''>${info?.pricing[0]?.price}</h3>
+                                    <h3>${info?.pricing[0]?.plan}</h3>
+                                </div>
+                                <div class='text-orange-500 p-5 shadow-lg rounded-lg font-bold'>
+                                    <h3>${info?.pricing[1]?.price}</h3>
+                                    <h3>${info?.pricing[1]?.plan}</h3>
+                                </div>
+                                <div class='text-red-500 p-5 shadow-lg rounded-lg font-bold'>
+                                    <h3>${info?.pricing[2]?.price}</h3>
+                                    <h3>${info?.pricing[2]?.plan}</h3>
+                                </div>
+                            </div>
+                            <div>
+                            </div>
+                            <div class='flex justify-between '>
+                                <div>                                                                    
+                                    <h3 class='font-bold text-xl'>Features</h3>
+                                    <ul class='list-disc'>
+                                        <li>${info?.features?.['1']?.feature_name}</li>
+                                        <li>${info?.features?.['2']?.feature_name}</li>
+                                        <li>${info?.features?.['3']?.feature_name}</li>
+                                    </ul>
+                                </div>
+                                <div>                                                                    
+                                    <h3 class='font-bold text-xl'>Integrations</h3>
+                                    <ul class='list-disc'>
+                                        <li>${info?.integrations?.[0]}</li>
+                                        <li>${info?.integrations?.[1]}</li>
+                                        <li>${info?.integrations?.[2]}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='flex-1 px-2'>
+                            <div>
+                                <img src="${info?.image_link[0]}" alt="">
+                            </div>
+                            <h3 class="font-bold text-xl">Hi, how are you doing today?</h3>
+                            <p>I'm doing well, thank you for asking. How can I assist you today?</p>
+                        </div>
+                    </div>
                 </form>
-                <h3 class="text-lg font-bold">${info.name}</h3>
-                <p class="py-4">Press ESC key or click on ✕ button to close</p>
             </div>
         </dialog>
     `
-    // seeMoreContainer.appendChild(div)
 }
 loadData()

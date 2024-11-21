@@ -62,14 +62,14 @@ const SeeMoreDetails = (info) =>{
     // seeMoreContainer.classList= 'bg-white p-5'
     seeMoreContainer.innerHTML = `
         <dialog id="seeMore" class="modal ">
-            <div class=" bg-white py-12">
+            <div class=" bg-white py-12 relative px-5">
                 <form method="dialog">
                     <button
-                        class="btn btn-sm btn-circle bg-red-500 btn-ghost absolute right-5 top-16  lg:right-2 lg:top-6"
+                        class="btn btn-sm btn-circle bg-red-500 btn-ghost absolute right-2 top-2"
                     >
                     ✕
                     </button>
-                    <div class ='flex flex-col md:flex-row justify-between p-6 gap-5 '>
+                    <div class =' flex flex-col md:flex-row justify-between p-6 gap-5 '>
                         <div class='flex-1 border border-red-400  p-5 lg:w-[490px] bg-[#EB575733]'>
                             <div class ='text-center flex justify-center'>
                                 <h3 class='font-bold lg:w-80 text-xl '>${info?.description}</h3>
@@ -109,11 +109,11 @@ const SeeMoreDetails = (info) =>{
                                 </div>
                             </div>
                         </div>
-                        <div class='flex-1 px-2'>
+                        <div class='flex-1 px-5 py-5 '>
                             <div>
-                                <img src="${info?.image_link[0]}" alt="">
+                                <img class='lg:w-[440px]' src="${info?.image_link[0]}" alt="">
                             </div>
-                            <h3 class="font-bold text-xl">Hi, how are you doing today?</h3>
+                            <h3 class="font-bold text-xl py-2">Hi, how are you doing today?</h3>
                             <p>I'm doing well, thank you for asking. How can I assist you today?</p>
                         </div>
                     </div>
